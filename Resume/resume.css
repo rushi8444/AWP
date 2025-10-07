@@ -1,0 +1,156 @@
+/* --- Global Reset & Fonts --- */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background for the page */
+    font-size: 11pt; /* Professional font size */
+    line-height: 1.5;
+}
+
+/* --- Main Resume Container --- */
+#resume {
+    width: 8.5in; /* Standard U.S. Letter width for printing */
+    max-width: 95%;
+    margin: 30px auto;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a professional lift */
+}
+
+/* --- Section Styling --- */
+.section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.3em;
+    color: #333;
+    border-bottom: 2px solid #333; /* Separator line for sections */
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- 1. HEADER STYLES --- */
+.header-section {
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.name {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+}
+
+.title {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.contact-info a {
+    color: #007bff; /* Standard link color for contact details */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: #0056b3;
+}
+
+/* --- 3. SKILLS STYLES --- */
+.skills-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex; /* Use flexbox for multi-column layout on skills */
+    flex-wrap: wrap;
+    gap: 10px; /* Space between skill items */
+}
+
+.skills-list li {
+    background-color: #eee;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-size: 0.95em;
+}
+
+/* --- 4. EXPERIENCE STYLES --- */
+.job-entry {
+    margin-bottom: 15px;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+}
+
+.job-entry h3 {
+    font-size: 1.1em;
+    margin: 0;
+    color: #333;
+}
+
+.company {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.dates {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.responsibilities {
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.responsibilities li {
+    margin-bottom: 5px;
+    /* Use a simple dash or square instead of default bullet */
+    list-style-type: square; 
+}
+
+/* --- 5. EDUCATION STYLES --- */
+.edu-entry {
+    margin-bottom: 10px;
+}
+
+.edu-entry h3 {
+    font-size: 1.05em;
+    margin-bottom: 2px;
+}
+
+.edu-entry p {
+    margin: 0;
+    color: #555;
+    font-size: 0.95em;
+}
+
+/* --- Print Styles (Crucial for a Resume) --- */
+@media print {
+    body {
+        background: none;
+    }
+    #resume {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+    /* Hide non-essential print elements, if any */
+}
