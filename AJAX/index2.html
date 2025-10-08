@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Example - Fetch Remote Data</title>
+</head>
+<body>
+    <h2>AJAX Example - Fetching Remote Data using XMLHttpRequest</h2>
+    <button id="fetchBtn">Fetch Data</button>
+
+    <div id="output" style="margin-top:20px; color:blue; font-family:Arial;"></div>
+
+    <script>
+        document.getElementById("fetchBtn").addEventListener("click", function() {
+            // Step 1: Create an XMLHttpRequest object
+            const xhr = new XMLHttpRequest();
+
+            // Step 2: Configure it — use GET method and specify a sample API endpoint
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+
+            // Step 3: Define what happens when the request completes
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Step 4: Parse the JSON response
+                    const data = JSON.parse(xhr.responseText);
+
+                    // Step 5: Display the fetched data on the web page
+                    document.getElementById("output").innerHTML = `
+                        <h3>Fetched Data:</h3>
+                        <p><strong>Title:</strong> ${data.title}</p>
+                        <p><strong>Body:</strong> ${data.body}</p>
+                    `;
+                } else {
+                    document.getElementById("output").innerText = "❌ Failed to fetch data. Status: " + xhr.status;
+                }
+            };
+
+            // Step 6: Handle network errors
+            xhr.onerror = function() {
+                document.getElementById("output").innerText = "⚠️ Request failed. Please check your connection.";
+            };
+
+            // Step 7: Send the request
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
