@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mini E‑Com — Mobile Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <div class="logo">MB</div>
+            <div>
+                <div class="site-title">Mini Mobile Shop</div>
+                <div style="color:var(--muted);font-size:.85rem">Add to cart • Checkout • Demo</div>
+            </div>
+        </div>
+        <div class="actions">
+            <button class="btn ghost" id="clearCart">Clear Cart</button>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+                <h2 style="margin:0">Featured Phones</h2>
+                <div style="color:var(--muted)">Showing sample products</div>
+            </div>
+
+            <div class="products" id="products"></div>
+        </section>
+
+        <aside class="cart">
+            <div class="card">
+                <h3>Your Cart <span id="cartCount" class="badge">0</span></h3>
+                <div class="cart-items" id="cartItems"></div>
+                <div class="total-row">
+                    <div>Total</div>
+                    <div id="cartTotal">₹0</div>
+                </div>
+                <div class="checkout">
+                    <input type="text" id="custName" placeholder="Your name" />
+                    <input type="email" id="custEmail" placeholder="Email" />
+                    <button id="placeOrder">Place Order</button>
+                </div>
+            </div>
+        </aside>
+    </main>
+</body>
+</html>

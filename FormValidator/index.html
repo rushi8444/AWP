@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        form {
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            margin: 8px 0;
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form name="myForm" onsubmit="return validateForm()">
+        <label>Name:</label>
+        <input type="text" name="name"><br>
+
+        <label>Email:</label>
+        <input type="text" name="email"><br>
+
+        <label>Password:</label>
+        <input type="password" name="password"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <div id="message"></div>
+    <script>
+        function validateForm() {
+            var name = document.forms["myForm"]["name"].value.trim();
+            var email = document.forms["myForm"]["email"].value.trim();
+            var password = document.forms["myForm"]["password"].value.trim();
+            var message = document.getElementById("message");
+
+            message.innerHTML = "";
+            message.style.color = "red";
+
+            if (name === "" || email === "" || password === "") {
+                alert("Please fill out all fields.");
+                return false;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Invalid email format.");
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            message.style.color = "green";
+            message.innerHTML = "✅ You are a valid user!";
+            return false; 
+        }
+    </script>
+</body>
+</html>
